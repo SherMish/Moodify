@@ -2,11 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt')
 var cors = require('cors');
+var passport = require('passport');
 const session = require('express-session');
 const connection = require('./config/database');
 const usersRoute = require('./routes/users');
 
 const MongoStore = require('connect-mongo');
+
 
 
 
@@ -37,8 +39,18 @@ app.use(cors());
         maxAge: 1000 * 60 * 60 * 24 //1 day
     }
 }));
-                
 
+
+/**
+ * -------------- PASSPORT AUTHENTICATION ----------------
+ */
+
+
+ // Need to require the entire Passport config module so app.js knows about it
+require('./config/passport');
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 /**
  * -------------- ROUTES ----------------
