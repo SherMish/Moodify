@@ -1,31 +1,34 @@
 const express = require('express');
 const mongoose = require('mongoose');
-require('dotenv').config();
-const bodyParser = require('body-parser');
-const usersRoute = require('./routes/users');
 const bcrypt = require('bcrypt')
 var cors = require('cors');
 const session = require('express-session');
+const connection = require('./config/database');
+const usersRoute = require('./routes/users');
 
 const MongoStore = require('connect-mongo');
 
 
+
+
+
+/**
+ * -------------- GENERAL SETUP ----------------
+ */
+ require('dotenv').config();
 app = express();
 
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(cors());
 
 
 
-const connect = mongoose.connect(process.env.DB_CONNECT,
-                {useNewUrlParser: true, useUnifiedTopology: true});
-                
-// const sessionStore = new MongoStore({
-//     mongooseConnection: mongoose.connection,
-//     collection: 'sessions'
-// });
+/**
+ * -------------- SESSION SETUP ----------------
+ */
 
-app.use(session({
+
+ app.use(session({
     secret: 'some secret',
     resave: false,
     saveUninitialized: true,
@@ -34,8 +37,20 @@ app.use(session({
         maxAge: 1000 * 60 * 60 * 24 //1 day
     }
 }));
+                
+
+
+/**
+ * -------------- ROUTES ----------------
+ */
+
 
 app.use('/api/users', usersRoute);
+app.get('/', (req,res,next) => {
+    console.log(req.session);
+    res.send('<h1>Hello World</h1>')
+})
+
 
 
 app.listen(3000, () => {
