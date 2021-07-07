@@ -61,6 +61,13 @@ app.use('/api/users', usersRoute);
 app.get('/', (req,res,next) => {
     console.log(req.session);
     res.send('<h1>Hello World</h1>')
+    next();
+})
+
+app.use((req,res,next) => {
+    console.log(req.session);
+    console.log(req.user);
+    next();
 })
 
 
