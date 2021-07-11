@@ -1,48 +1,36 @@
-const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
-const connection = require('./database');
+const fs = require('fs');
+const path = require('path');
 const User = require('../models/user');
-const validPassword = require('../lib/passwordUtills').validPassword;
+const JwtStragedy = require('passport-jwt').Strategy;
+const ExtractJwt = require('passport-jwt').ExtractJwt;
+
+const pathToKey = path.join(__dirname, '..', 'id_rsa_pub.pem');
+const PUB_KEY = fs.readFileSync(pathToKey, 'utf8');
 
 
-//if we had other fields in req.body (not username and password)
-// const customFields = {
-//     usernameField: 'uname',
-//     passwordField: 'pw'
-// };
+//the VERIFICATION happens here
 
 
-const verifyCallback = (username, password, done) => {
-    User.findOne({username: username})
+const options = {
+    jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+    secretOrKey: PUB_KEY,
+    algorithms: ['RS256']
+};
+
+const stragedy = new JwtStragedy(options, (payload,done) => {
+    User.findOne({_id: payload.sub})
         .then((user) => {
-
-            if (!user) return done(null, false);
-
-            const isValid = validPassword(password, user.hash, user.salt);
-
-            if (isValid) {
+            if (user) {
                 return done(null, user);
             } else {
-                return done(null, false)
+                return done(null, false);
             }
-        })
-        .catch((err => {
-            done(err);
-        }));
+            })
+            .catch(err => done(null, false));
+
+})
+
+
+module.exports = (passport) => {
+    passport.use(stragedy);
 }
-
-const stragedy = new LocalStrategy(/*customFields,*/ verifyCallback);
-
-passport.use(stragedy);
-
-passport.serializeUser((user,done) => {
-    done(null, user.id);
-});
-
-passport.deserializeUser((userId, done) => {
-    User.findById(userId)
-        .then((user) => {
-            done(null, user);
-        })
-        .catch(err => done(err))
-});
