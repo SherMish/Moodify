@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import * as moment from "moment";
-import { registerResponseServer } from '../models/response.model';
+import { authResponseServer } from '../models/response.model';
 
 
 @Injectable({
@@ -14,12 +14,12 @@ export class UsersService {
 
   constructor(private http: HttpClient) { }
 
-  userRegister(reqBody: {username:string, email:string, password:string}): Observable<registerResponseServer> {
-    return this.http.post<registerResponseServer>(`${this.serverUrl}/users/register`, reqBody);
+  userRegister(reqBody: {username:string, email:string, password:string}): Observable<authResponseServer> {
+    return this.http.post<authResponseServer>(`${this.serverUrl}/users/register`, reqBody);
   }
 
-  userLogin(username, password) {
-    return this.http.post(`${this.serverUrl}/users/login`, {username: username, password: password}).subscribe((res) => {console.log(res)});
+  userLogin(reqBody: {username:string, password:string}): Observable<authResponseServer> {
+    return this.http.post<authResponseServer>(`${this.serverUrl}/users/login`, reqBody);
   }
 
   loadDashboard() {

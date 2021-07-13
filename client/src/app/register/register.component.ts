@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UsersService } from '../services/users.service';
 import { Router } from '@angular/router';
 import { TestBed } from '@angular/core/testing';
-import { registerResponseServer } from '../models/response.model';
+import { authResponseServer } from '../models/response.model';
 import { AuthService } from '../services/auth.service';
 
 
@@ -35,13 +35,12 @@ export class RegisterComponent implements OnInit {
     };
 
     this.userService.userRegister(reqObject)
-        .subscribe((res: registerResponseServer) => {
+        .subscribe((res: authResponseServer) => {
           
           if(res.success == true){
             alert("Registration completed succesfully!");
-            console.log(res);
             this.auth.setLocalStorage(res);
-            //this.router.navigateByUrl('/login');
+            this.router.navigateByUrl('/dashboard');
           }
           else {
             alert(res.message);

@@ -18,14 +18,15 @@ export class DashboardComponent implements OnInit {
     this.userService.loadDashboard().subscribe(
       (response) => {
       if (response) {
-        this.message = response.messsage;
+        let username = localStorage.getItem('username');
+        this.message = `Hello ${username}!`
         console.log(response);
       }
     },
 
     (error) => {
       if (error.status === 401) {
-        this.message = 'You are not authorized to visit this route.............  No data is displayed.';
+        this.message = 'You are not authorized to visit this route...  No data is displayed.';
       }
 
       console.log(error);

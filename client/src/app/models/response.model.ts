@@ -1,4 +1,4 @@
-export interface registerResponseServer {
+export interface authResponseServer {
     success: Boolean,
     message?: string,
     user?: userResponse,

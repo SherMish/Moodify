@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as moment from 'moment';
-import { registerResponseServer } from '../models/response.model';
+import { authResponseServer } from '../models/response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +9,13 @@ export class AuthService {
 
   constructor() { }
 
-  setLocalStorage(responseObj: registerResponseServer) {
+  setLocalStorage(responseObj: authResponseServer) {
     // Adds the expiration time defined on the JWT to the current moment
     const expiresAt = moment().add(Number.parseInt(responseObj.expiresIn), 'days');
 
     localStorage.setItem('id_token', responseObj.token);
     localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
+    localStorage.setItem('username', responseObj.user.username)
   }          
 
   logout() {
