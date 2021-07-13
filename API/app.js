@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 var cors = require('cors');
 var passport = require('passport');
 const usersRoute = require('./routes/users');
+const dashboardRoute = require('./routes/dashboard')
 const path = require('path');
 
 const MongoStore = require('connect-mongo');
@@ -56,6 +57,7 @@ app.use(passport.initialize());
  */
 
 app.use('/api/users', usersRoute);
+app.use('/api/dashboard', dashboardRoute);
 
 
 app.listen(3000, () => {
