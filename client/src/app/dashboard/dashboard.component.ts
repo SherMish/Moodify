@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
               private http: HttpClient) { }
 
   message: string;
+  isAuthorized: boolean;
 
   ngOnInit(): void {
     this.userService.loadDashboard().subscribe(
@@ -20,23 +21,25 @@ export class DashboardComponent implements OnInit {
       if (response) {
         let username = localStorage.getItem('username');
         this.message = `Hello ${username}!`
-        console.log(response);
+        this.isAuthorized = true;
       }
     },
 
     (error) => {
       if (error.status === 401) {
-        this.message = 'You are not authorized to visit this route...  No data is displayed.';
+        this.message = 'You are not authorized to be here, please login!';
+        this.isAuthorized = false;
       }
-
       console.log(error);
     }, 
 
     () => {
-      console.log('HTTP request done! ' + this.message);
+
     }
   );
-
   }
+
+
+
 
 }

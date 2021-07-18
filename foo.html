@@ -8,33 +8,22 @@
             Advanced mental health analysis. For free.
           </div>
       
-         
-          <div *ngIf="!is_logged">
-            <div class="row animate__animated animate__fadeIn animate__delay-1s ">
+          
+          <div class="row animate__animated animate__fadeIn animate__delay-1s">
+            <div *ngIf="!is_logged">
               <div class="col">
                 <button class="btn btn-lg btn-dark mr-2" routerLink="/login" >Login</button>
               </div>
               <div class="col">
                 <button class="btn btn-lg btn-dark" routerLink ="/register">Register</button>
               </div>
-              <img src="assets/home_image.png" alt="">
             </div>
-          </div>
-
-          <div *ngIf="is_logged">
-            <div class="row animate__animated animate__fadeIn animate__delay-1s ">
-              <div class="col">
+            <div *ngIf="is_logged">
                 <button class="btn btn-lg btn-dark mr-2" routerLink="/dashboard" >Enter the Dashboard</button>
-              </div>
-              <img src="assets/home_image.png" alt="">
             </div>
+            <img src="assets/home_image.png" alt="">
           </div>
-
-
-
-
-      </div>
     </div>
   </div>
-  
+</div>
     

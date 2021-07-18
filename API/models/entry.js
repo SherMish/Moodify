@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 const User = require('../models/user')
 
+
+
 const EntrySchema = mongoose.Schema({
-   // createdBy: User,
     date: {
         type: Date,
         default: Date.now
@@ -44,7 +46,8 @@ const EntrySchema = mongoose.Schema({
         comment: String
     },
     productive: Number,
-    additional_info: String
+    additional_info: String,
+    createdBy: { type: Schema.Types.ObjectId, ref: 'User' }
 });
 
 module.exports = mongoose.model('Entry', EntrySchema);
