@@ -27,4 +27,7 @@ export class NavbarComponent implements OnInit {
     window.location.reload();
   }
 
+  //TODO: https://stackoverflow.com/questions/46047854/how-to-update-a-component-without-refreshing-full-page-angular/46049546
+  // Reload the component when a user registers/logins, to view the logout button.
+
 }

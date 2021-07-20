@@ -26,5 +26,9 @@ export class UsersService {
     return this.http.get<any>(`${this.serverUrl}/users/protected`);
   }
 
+  isFirstEntry(username) {
+    return this.http.post<any>(`${this.serverUrl}/dashboard/first-entry`, {username: username})
+  }
+
 
 }

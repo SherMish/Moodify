@@ -5,14 +5,14 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const router = express.Router();
 
-router.get('/first-entry', passport.authenticate('jwt',{session: false}), (req,res) => {
+router.post('/first-entry', passport.authenticate('jwt',{session: false}), (req,res) => {
     User.findOne({username: req.body.username}, (err, user) =>{
         if (err) {
             res.json({success: false, message: err});
             return;
         }
         if (!user) {
-            res.json({success: false, message: "Something went wrong"});
+            res.json({success: false, message: "Something went wrong1"});
             return;
         }
         Entry.findOne({createdBy: user._id}, (err, entry) => {
@@ -37,21 +37,21 @@ router.post('/entry', passport.authenticate('jwt',{session: false}),  async (req
             return;
         }
         if (!user) {
-            res.json({success: false, message: "Something went wrong"});
+            res.json({success: false, message: "Something went wrong2"});
             return;
         }
         const entry = new Entry({
             wake_up: req.body.wake_up,
             hours_slept: req.body.hours_slept,
-            mood: req.body.mood,
-            substances: req.body.substances,
-            romantic_relationship: req.body.romantic_relationship,
-            social_life: req.body.social_life,
             work: req.body.work,
             study: req.body.study,
+            romantic_relationship: req.body.romantic_relationship,
+            social_life: req.body.social_life,
             hobbies: req.body.hobbies,
-            sexual_activity: req.body.sexual_activity,
             productive: req.body.productive,
+            substances: req.body.substances,
+            sexual_activity: req.body.sexual_activity,
+            mood: req.body.mood,
             additional_info: req.body.additional_info,
             createdBy: user._id
         });
