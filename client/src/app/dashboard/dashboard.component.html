@@ -9,152 +9,212 @@
 <div *ngIf="isAuthorized">
    <div *ngIf="first_entry">
       <div class="text-center display-6 animate__animated animate__fadeIn animate__delay-1s ">
-         <div class="animate__animated animate__fadeOut animate__delay-4s">
+         <!-- <div class="animate__animated animate__fadeOut animate__delay-4s"> -->
             {{message_is_first_entry}}
-         </div>
+         <!-- </div> -->
       </div>
    </div>
 
    <div *ngIf="!first_entry">
       <div class="text-center display-6 animate__animated animate__fadeIn animate__delay-1s">
-         <div class="animate__animated animate__fadeOut animate__delay-4s">
+         <!-- <div class="animate__animated animate__fadeOut animate__delay-4s"> -->
             {{message_is_first_entry}}
-         </div>
+         <!-- </div> -->
       </div>
    </div>
 
-   <div class="container text-center animate__animated animate__fadeIn animate__delay-5s ">
+<form [formGroup]="moodForm" (ngSubmit)="onSubmit()">
+   <div class="container text-center animate__animated animate__fadeIn animate__delay-5s my-5">
       When did you wake up today?
-      <input [ngxTimepicker]="picker">
-      <ngx-material-timepicker #picker></ngx-material-timepicker>
-      <br>
-      
-      <div class="row">
-         How many hours of sleep did you have today?
-         <div class="col-2">
-            <select class="form-select" aria-label="Default select example">
-               
-               <option selected>Open this select menu</option>
-               <option value="1">One</option>
-               <option value="2">Two</option>
-               <option value="3">Three</option>
-            </select>
-         </div>
+         <input [ngxTimepicker]="picker">
+         <ngx-material-timepicker #picker></ngx-material-timepicker>
+         <br>
          
-      </div>
-      <br>
-
-      Did you work today?
-      <br>
-
-      Did you study today?
-      <br>
-
-      Did you have a romantic activity today?
-      <br>
-
-      Did you have social activities today?
-      <br>
-
-      <div class="display-6 mb-2">
-         Have you done anything related to your hobbies?
-      <div class="d-flex justify-content-center row mb-3">
-         <h5>Video games, hiking, playing tennis, cooking and anything else that you like doing!</h5>
-         <div class="col-4">
-            <select class="form-select" aria-label="Default select example">
-               <option value="1">No</option>
-               <option value="2">Yes</option>
-            </select>
+   
+         <div class="display-6 mb-2">
+            How many hours of sleep did you have today?
          </div>
-      </div>
-      <br>
-
-      <div class="display-6 mb-2">
-         How productive was your day?
-      </div>
-      <div class="d-flex justify-content-center row mb-3">
-         <h5>How much progress has been made toward achieving your goals and\or getting things done, as planned? </h5>
-         <div class="col-4">
-            <select class="form-select" aria-label="Default select example">
-               <option value="1">Very low productivity</option>
-               <option value="2">Did some things, could`ve done more</option>
-               <option value="3">Just as I planned!</option>
-               <option value="4">Did all the things I planned and some extra things here and there</option>
-               <option value="5">Very high productivity</option>
-            </select>
+         <div class="d-flex justify-content-center row mb-3">
+            <h5></h5>
+            <div class="col-4">
+                  <select class="form-select" aria-label="Default select example" formControlName="hours_slept">
+                     <option value="0">No sleep</option>
+                     <option value="1">1 hour</option>
+                     <option value="2">2 hours</option>
+                     <option value="3">3 hours</option>
+                     <option value="4">4 hours</option>
+                     <option value="5">5 hours</option>
+                     <option value="6">6 hours</option>
+                     <option value="7">7 hours</option>
+                     <option value="8">8 hours</option>
+                     <option value="9">9 hours</option>
+                     <option value="10">10 hours</option>
+                     <option value="11">11 hours</option>
+                     <option value="12">12 hours</option>
+                  </select>
+            </div>
          </div>
-      </div>
-      <br>
-
-      <div class="display-6 mb-2">
-         Did you drink alcohol and/or consume recreational drugs?
-      </div>
-      <div class="d-flex justify-content-center row mb-3">
-         <h5>Mention the substances you consumed below (Additional notes)</h5>
-         <div class="col-4">
-            <select class="form-select" aria-label="Default select example">
-               <option value="1">No</option>
-               <option value="2">Yes</option>
-            </select>
+         <br>
+   
+   
+   
+         <div class="display-6 mb-2">
+            Did you work today?
          </div>
-      </div>
-      <br>
-
-      <div class="display-6 mb-2">
-         Did you have any sexual activity today?
-      </div>
-      <div class="d-flex justify-content-center row mb-3">
-         <h5>Including self-pleasure</h5>
-         <div class="col-4">
-            <select class="form-select" aria-label="Default select example">
-               <option value="1">No</option>
-               <option value="2">Yes</option>
-            </select>
+         <div class="d-flex justify-content-center row mb-3">
+            <h5>A job, business, freelancing or studying a field you would want to work in</h5>
+            <div class="col-4">
+               <select class="form-select" aria-label="Default select example" formControlName="work">
+                  <option value=false>No</option>
+                  <option value=true>Yes</option>
+               </select>
+            </div>
          </div>
+         <br>
+   
+   
+         <div class="display-6 mb-2">
+            Did you study today?
+         </div>
+         <div class="d-flex justify-content-center row mb-3">
+            <h5>College studies, a course, a new development technology or something else</h5>
+            <div class="col-4">
+               <select class="form-select" aria-label="Default select example"formControlName="study">
+                  <option value=false>No</option>
+                  <option value=true>Yes</option>
+               </select>
+            </div>
+         </div>
+         <br>
+   
+         <div class="display-6 mb-2">
+            Have you been involved in a romantic relationship today?
+         </div>
+         <div class="d-flex justify-content-center row mb-3">
+            <h5>Met with your partner? Went on a date? Chatting with someone new?</h5>
+            <div class="col-4">
+               <select class="form-select" aria-label="Default select example" formControlName="romantic_relationship">
+                  <option value="false">No</option>
+                  <option value="true">Yes</option>
+               </select>
+            </div>
+         </div>
+         <br>
          
-      </div>
-      <br>
-
-         <label for="customRange1" class="form-label display-6"> Generally, how was your mood today?</label>
-         <div class="d-flex justify-content-center align-items-center row">
-            <div class="col">
-               <span style="font-size: 3em; color: Tomato;">
-                  <i class="fas fa-frown"></i>
-               </span>
-            </div>
-            <div class="col-8">
-               <input type="range" class="form-range" min="0" max="10" id="customRange1">
-            </div>
-            <div class="col">
-               <span style="font-size: 3em; color: rgb(1, 186, 28);">
-                  <i class="fas fa-laugh-beam"></i>
-               </span>
+   
+         <div class="display-6 mb-2">
+            Have you participated in a social activity today?
+         </div>
+         <div class="d-flex justify-content-center row mb-3">
+            <h5>Going to your favorite bar, having a nice meal at your neighbours` place or maybe a cinema fun night?</h5>
+            <div class="col-4">
+               <select class="form-select" aria-label="Default select example" formControlName="social_life">
+                  <option value="false">No</option>
+                  <option value="true">Yes</option>
+               </select>
             </div>
          </div>
-      <br>
-
-      <div class="display-6 mb-2">
-         Additional notes
-      </div>
-      <div class="d-flex justify-content-center row">
-         <h5>Important events, developments, situations and anything that you find relevant</h5>
-         <div class="form-floating col-10">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+         <br>
+   
+         <div class="display-6 mb-2">
+            Have you done anything related to your hobbies?
          </div>
-      </div>
-      <br>
-
-
-
+         <div class="d-flex justify-content-center row mb-3">
+            <h5>Video games, hiking, playing tennis, cooking and anything else that you like doing!</h5>
+            <div class="col-4">
+               <select class="form-select" aria-label="Default select example" formControlName="hobbies">
+                  <option value="false">No</option>
+                  <option value="true">Yes</option>
+               </select>
+            </div>
+         </div>
+         <br>
+   
+         <div class="display-6 mb-2">
+            How productive was your day?
+         </div>
+         <div class="d-flex justify-content-center row mb-3">
+            <h5>How much progress has been made toward achieving your goals and\or getting things done, as planned? </h5>
+            <div class="col-4">
+               <select class="form-select" aria-label="Default select example" formControlName="productive">
+                  <option value="1">Very low productivity</option>
+                  <option value="2">Did some things, could`ve done more</option>
+                  <option value="3">Just as I planned!</option>
+                  <option value="4">Did all the things I planned and some extra things here and there</option>
+                  <option value="5">Very high productivity</option>
+               </select>
+            </div>
+         </div>
+         <br>
+   
+         <div class="display-6 mb-2">
+            Did you drink alcohol and/or consume recreational drugs?
+         </div>
+         <div class="d-flex justify-content-center row mb-3">
+            <h5>Mention the substances you consumed below (Additional notes)</h5>
+            <div class="col-4">
+               <select class="form-select" aria-label="Default select example" formControlName="substances">
+                  <option value="false">No</option>
+                  <option value="true">Yes</option>
+               </select>
+            </div>
+         </div>
+         <br>
+   
+         <div class="display-6 mb-2">
+            Did you have any sexual activity today?
+         </div>
+         <div class="d-flex justify-content-center row mb-3">
+            <h5>Including self-pleasure</h5>
+            <div class="col-4">
+               <select class="form-select" aria-label="Default select example" formControlName="sexual_activities">
+                  <option value="false">No</option>
+                  <option value="true">Yes</option>
+               </select>
+            </div>
+            
+         </div>
+         <br>
+   
+            <label for="customRange1" class="form-label display-6"> Generally, how was your mood today?</label>
+            <div class="d-flex justify-content-center align-items-center row">
+               <div class="col">
+                  <span style="font-size: 3em; color: Tomato;">
+                     <i class="fas fa-frown"></i>
+                  </span>
+               </div>
+               <div class="col-8">
+                  <input type="range" class="form-range" min="0" max="10" id="customRange1" formControlName="mood">
+               </div>
+               <div class="col">
+                  <span style="font-size: 3em; color: rgb(1, 186, 28);">
+                     <i class="fas fa-laugh-beam"></i>
+                  </span>
+               </div>
+            </div>
+         <br>
+   
+         <div class="display-6 mb-2">
+            Additional notes
+         </div>
+         <div class="d-flex justify-content-center row">
+            <h5>Important events, developments, situations and anything that you find relevant</h5>
+            <div class="form-floating col-10">
+               <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" formControlName="additional_info"></textarea>
+            </div>
+         </div>
+         <br>
+         <button type="submit" class="btn btn-dark">SENDDDDD!!!</button>
    </div>
+</form>
+      
+         
+   
+   
 
-
-
-
-
-
-
-
-
-
-</div>
+      
+   
+   
+   
+   
+   

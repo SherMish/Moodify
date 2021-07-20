@@ -41,18 +41,18 @@ router.post('/entry', passport.authenticate('jwt',{session: false}),  async (req
             return;
         }
         const entry = new Entry({
-            wake_up: req.body.wake_up,
-            hours_slept: req.body.hours_slept,
-            work: req.body.work,
-            study: req.body.study,
-            romantic_relationship: req.body.romantic_relationship,
-            social_life: req.body.social_life,
-            hobbies: req.body.hobbies,
-            productive: req.body.productive,
-            substances: req.body.substances,
-            sexual_activity: req.body.sexual_activity,
-            mood: req.body.mood,
-            additional_info: req.body.additional_info,
+            wake_up: req.body.entry.wake_up,
+            hours_slept: req.body.entry.hours_slept,
+            work: req.body.entry.work,
+            study: req.body.entry.study,
+            romantic_relationship: req.body.entry.romantic_relationship,
+            social_life: req.body.entry.social_life,
+            hobbies: req.body.entry.hobbies,
+            productive: req.body.entry.productive,
+            substances: req.body.entry.substances,
+            sexual_activity: req.body.entry.sexual_activity,
+            mood: req.body.entry.mood,
+            additional_info: req.body.entry.additional_info,
             createdBy: user._id
         });
 
@@ -75,7 +75,7 @@ router.post('/entry', passport.authenticate('jwt',{session: false}),  async (req
                     return;
                 }
              });
-        res.json({result: true, message:"entry added!"})
+        res.json({success: true, message:"entry added!"})
     });
 })
 

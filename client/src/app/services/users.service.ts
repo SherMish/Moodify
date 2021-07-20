@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import * as moment from "moment";
 import { authResponseServer } from '../models/response.model';
+import { dailyMoodEntry } from '../models/entry.model';
 
 
 @Injectable({
@@ -28,6 +29,10 @@ export class UsersService {
 
   isFirstEntry(username) {
     return this.http.post<any>(`${this.serverUrl}/dashboard/first-entry`, {username: username})
+  }
+
+  addEntry(entry:dailyMoodEntry, username) {
+    return this.http.post<any>(`${this.serverUrl}/dashboard/entry`, {username: username, entry:entry});
   }
 
 
