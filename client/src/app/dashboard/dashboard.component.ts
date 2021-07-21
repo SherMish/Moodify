@@ -21,12 +21,11 @@ export class DashboardComponent implements OnInit {
     hobbies: new FormControl(),
     productive: new FormControl(),
     substances: new FormControl(),
-    sexual_activities: new FormControl(),
+    sexual_activity: new FormControl(),
     mood: new FormControl(),
     additional_info: new FormControl()
   });
-
-    entry: dailyMoodEntry;
+    
 
   constructor(private userService: UsersService,
               private http: HttpClient) { }
@@ -38,7 +37,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.userService.loadDashboard().subscribe(
+    this.userService.isAuth().subscribe(
       (response) => {
       if (response) {
         let username = localStorage.getItem('username');
@@ -69,7 +68,7 @@ export class DashboardComponent implements OnInit {
           }
           else if (!response.first_entry) {
             this.first_entry = false;
-            this.message_is_first_entry = "It`s good to see you again! So how was your day today?";
+            this.message_is_first_entry = "It`s good to see you again!";
           }
           else {
             this.first_entry = true;
@@ -91,27 +90,27 @@ export class DashboardComponent implements OnInit {
 
   }
 
-  onSubmit() {
-   // this.entry.wake_up = this.moodForm.value.wake_up;
-    this.entry = {}
-    console.log(this.moodForm.value.hours_slept);
-    this.entry.hours_slept = this.moodForm.value.hours_slept;
-    this.entry.work = this.strToBool(this.moodForm.value.work);
-    this.entry.study = this.strToBool(this.moodForm.value.study);
-    this.entry.romantic_relationship = this.strToBool(this.moodForm.value.romantic_relationship);
-    this.entry.social_life = this.strToBool(this.moodForm.value.social_life);
-    this.entry.hobbies = this.strToBool(this.moodForm.value.hobbies);
-    this.entry.productive = this.moodForm.value.productive;
-    this.entry.substances = this.strToBool(this.moodForm.value.substances);
-    this.entry.sexual_activities = this.strToBool(this.moodForm.value.sexual_activities);
-    this.entry.mood = this.moodForm.value.mood;
-    this.entry.additional_info = this.moodForm.value.additional_info;
+  onSubmit() {   
+    let entry = <dailyMoodEntry>{ };
 
-    this.userService.addEntry(this.entry, localStorage.getItem('username')).subscribe( (result) => console.log(result));
+    entry.wake_up = this.moodForm.value.wake_up;
+    entry.hours_slept = this.moodForm.value.hours_slept;
+    entry.work = this.strToBool(this.moodForm.value.work);
+    entry.study = this.strToBool(this.moodForm.value.study);
+    entry.romantic_relationship = this.strToBool(this.moodForm.value.romantic_relationship);
+    entry.social_life = this.strToBool(this.moodForm.value.social_life);
+    entry.hobbies = this.strToBool(this.moodForm.value.hobbies);
+    entry.productive = this.moodForm.value.productive;
+    entry.substances = this.strToBool(this.moodForm.value.substances);
+    entry.sexual_activity = this.strToBool(this.moodForm.value.sexual_activity);
+    entry.mood = this.moodForm.value.mood;
+    entry.additional_info = this.moodForm.value.additional_info;
+
+    this.userService.addEntry(entry, localStorage.getItem('username')).subscribe( (result) => console.log(result));
   }
 
   strToBool(str) {
-    return (str == 'true');
+    return (str);
   }
 
 

@@ -1,0 +1,64 @@
+<div class="container my-5 text-center">
+    <div *ngIf="!isAuthorized">
+        <div class="display-4">
+            {{message}}
+        </div>
+        
+    </div>
+
+ 
+    <div *ngIf="isAuthorized">
+        <div *ngIf="first_entry">
+            <div class="display-4">
+                Your mood tracker is empty!<a href="dashboard">Click here</a> to start
+            </div>
+        </div>
+
+        <div *ngIf="!first_entry">
+            <table class="table the-table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Wake Up</th>
+                    <th scope="col">Hours Slept</th>
+                    <th scope="col">Worked?</th>
+                    <th scope="col">Studied?</th>
+                    <th scope="col">Romance?</th>
+                    <th scope="col">Socialized?</th>
+                    <th scope="col">Hobbies?</th>
+                    <th scope="col">Productivity</th>
+                    <th scope="col">Substances</th>
+                    <th scope="col">Sexual Life</th>
+                    <th scope="col"><b>Mood</b></th>
+                    <th scope="col">Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let c of entries; let i=index">
+                    <th scope="row" class="align-middle" >{{c.date}}</th>
+                    <td class="align-middle">{{c.wake_up}}</td>
+                    <td class="align-middle">{{c.hours_slept}}</td>
+                    <td class="align-middle">{{c.work}}</td>
+                    <td class="align-middle">{{c.study}}</td>
+                    <td class="align-middle">{{c.romantic_relationship}}</td>
+                    <td class="align-middle">{{c.social_life}}</td>
+                    <td class="align-middle">{{c.hobbies}}</td>
+                    <td class="align-middle">{{c.productive}}</td>
+                    <td class="align-middle">{{c.substances}}</td>
+                    <td class="align-middle">{{c.sexual_activity}}</td>
+                    <td class="align-middle"><b>{{c.mood}}</b></td>
+                    <td class="align-middle"><span>{{c.additional_info}}</span></td>
+                  </tr>
+                
+                </tbody>
+              </table>
+        </div>
+
+
+        
+        
+    </div>
+
+
+
+</div>

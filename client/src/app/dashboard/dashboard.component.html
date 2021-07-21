@@ -25,14 +25,22 @@
 
 <form [formGroup]="moodForm" (ngSubmit)="onSubmit()">
    <div class="container text-center animate__animated animate__fadeIn animate__delay-5s my-5">
-      When did you wake up today?
-         <input [ngxTimepicker]="picker">
-         <ngx-material-timepicker #picker></ngx-material-timepicker>
-         <br>
+      
+      <div class="display-6 mb-2">
+         When did you wake up today?
+      </div>
+      <div class="d-flex justify-content-center row mb-3">
+         <h5></h5>
+         <div class="col-8">
+            <input [ngxTimepicker]="picker" formControlName="wake_up">
+            <ngx-material-timepicker #picker></ngx-material-timepicker>
+         </div>
+      </div>
+      <br>
          
    
          <div class="display-6 mb-2">
-            How many hours of sleep did you have today?
+            How many hours of sleep did you sleep last night?
          </div>
          <div class="d-flex justify-content-center row mb-3">
             <h5></h5>
@@ -65,8 +73,8 @@
             <h5>A job, business, freelancing or studying a field you would want to work in</h5>
             <div class="col-4">
                <select class="form-select" aria-label="Default select example" formControlName="work">
-                  <option value=false>No</option>
-                  <option value=true>Yes</option>
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
                </select>
             </div>
          </div>
@@ -80,8 +88,8 @@
             <h5>College studies, a course, a new development technology or something else</h5>
             <div class="col-4">
                <select class="form-select" aria-label="Default select example"formControlName="study">
-                  <option value=false>No</option>
-                  <option value=true>Yes</option>
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
                </select>
             </div>
          </div>
@@ -94,8 +102,8 @@
             <h5>Met with your partner? Went on a date? Chatting with someone new?</h5>
             <div class="col-4">
                <select class="form-select" aria-label="Default select example" formControlName="romantic_relationship">
-                  <option value="false">No</option>
-                  <option value="true">Yes</option>
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
                </select>
             </div>
          </div>
@@ -109,8 +117,8 @@
             <h5>Going to your favorite bar, having a nice meal at your neighbours` place or maybe a cinema fun night?</h5>
             <div class="col-4">
                <select class="form-select" aria-label="Default select example" formControlName="social_life">
-                  <option value="false">No</option>
-                  <option value="true">Yes</option>
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
                </select>
             </div>
          </div>
@@ -123,8 +131,8 @@
             <h5>Video games, hiking, playing tennis, cooking and anything else that you like doing!</h5>
             <div class="col-4">
                <select class="form-select" aria-label="Default select example" formControlName="hobbies">
-                  <option value="false">No</option>
-                  <option value="true">Yes</option>
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
                </select>
             </div>
          </div>
@@ -154,8 +162,8 @@
             <h5>Mention the substances you consumed below (Additional notes)</h5>
             <div class="col-4">
                <select class="form-select" aria-label="Default select example" formControlName="substances">
-                  <option value="false">No</option>
-                  <option value="true">Yes</option>
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
                </select>
             </div>
          </div>
@@ -167,9 +175,9 @@
          <div class="d-flex justify-content-center row mb-3">
             <h5>Including self-pleasure</h5>
             <div class="col-4">
-               <select class="form-select" aria-label="Default select example" formControlName="sexual_activities">
-                  <option value="false">No</option>
-                  <option value="true">Yes</option>
+               <select class="form-select" aria-label="Default select example" formControlName="sexual_activity">
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
                </select>
             </div>
             
@@ -179,7 +187,7 @@
             <label for="customRange1" class="form-label display-6"> Generally, how was your mood today?</label>
             <div class="d-flex justify-content-center align-items-center row">
                <div class="col">
-                  <span style="font-size: 3em; color: Tomato;">
+                  <span style="font-size: 5em; color: Tomato;">
                      <i class="fas fa-frown"></i>
                   </span>
                </div>
@@ -187,7 +195,7 @@
                   <input type="range" class="form-range" min="0" max="10" id="customRange1" formControlName="mood">
                </div>
                <div class="col">
-                  <span style="font-size: 3em; color: rgb(1, 186, 28);">
+                  <span style="font-size: 5em; color: rgb(1, 186, 28);">
                      <i class="fas fa-laugh-beam"></i>
                   </span>
                </div>

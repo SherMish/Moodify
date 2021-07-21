@@ -13,6 +13,8 @@ import { HTTP_INTERCEPTORS,} from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { AboutComponent } from './about/about.component';
+import { TrackerComponent } from './tracker/tracker.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
     RegisterComponent,
     LoginComponent,
     NavbarComponent,
-    DashboardComponent
+    DashboardComponent,
+    AboutComponent,
+    TrackerComponent
   ],
   imports: [
     BrowserModule,

@@ -23,7 +23,7 @@ export class UsersService {
     return this.http.post<authResponseServer>(`${this.serverUrl}/users/login`, reqBody);
   }
 
-  loadDashboard() {
+  isAuth() {
     return this.http.get<any>(`${this.serverUrl}/users/protected`);
   }
 
@@ -33,6 +33,10 @@ export class UsersService {
 
   addEntry(entry:dailyMoodEntry, username) {
     return this.http.post<any>(`${this.serverUrl}/dashboard/entry`, {username: username, entry:entry});
+  }
+
+  getEntries(username) {
+    return this.http.get<any>(`${this.serverUrl}/track/${username}`);
   }
 
 
