@@ -16,6 +16,23 @@ mood and overall feeling for the better, or worse.
 Home page:
 ![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/main.jpg?raw=true)
 
+Login with non existing username:
+![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/user%20could%20not%20be%20found.jpg?raw=true)
+
+Login with non existing username:
+![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/user%20could%20not%20be%20found.jpg?raw=true)
+
+Login with non existing username:
+![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/user%20could%20not%20be%20found.jpg?raw=true)
+
+Login with non existing username:
+![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/user%20could%20not%20be%20found.jpg?raw=true)
+
+Login with non existing username:
+![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/user%20could%20not%20be%20found.jpg?raw=true)
+
+Login with non existing username:
+![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/user%20could%20not%20be%20found.jpg?raw=true)
 
 
 # External resources:
