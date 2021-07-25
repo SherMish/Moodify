@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { authResponseServer } from '../models/response.model';
 import { AuthService } from '../services/auth.service';
+import { DataSharingService } from '../services/data-sharing.service';
 import { UsersService } from '../services/users.service';
 
 
@@ -22,7 +23,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private userService: UsersService,
               private router: Router,
-              private auth: AuthService) { }
+              private auth: AuthService,
+              private dataSharingService: DataSharingService) { }
 
   ngOnInit(): void {
   }
@@ -38,6 +40,7 @@ export class LoginComponent implements OnInit {
         .subscribe((res: authResponseServer) => {
       if(res.success == true){
         this.auth.setLocalStorage(res);
+        this.dataSharingService.isUserLoggedIn.next(true);
         this.router.navigateByUrl('/dashboard');
       }
       else {

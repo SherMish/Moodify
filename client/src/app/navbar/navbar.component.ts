@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataSharingService } from '../services/data-sharing.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,23 +9,26 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
 
 
-  constructor() { }
+  constructor(private dataSharingService: DataSharingService) { }
   is_logged: boolean;
 
   ngOnInit(): void {
-    let username = localStorage.getItem('username');
-    if (username) {
-      this.is_logged = true;
+    if (!localStorage.getItem('username')) {
+      this.dataSharingService.isUserLoggedIn.subscribe( value => {
+        this.is_logged = value;
+      })
     }
-    else {
-      this.is_logged = false;
-    }
+
+    if (localStorage.getItem('username')) this.is_logged = true;
+    
 
   }
 
   logout() {
     localStorage.clear();
+    this.dataSharingService.isUserLoggedIn.next(false);
     window.location.reload();
+
   }
 
   //TODO: https://stackoverflow.com/questions/46047854/how-to-update-a-component-without-refreshing-full-page-angular/46049546

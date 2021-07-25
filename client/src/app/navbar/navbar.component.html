@@ -1,6 +1,6 @@
-<nav class="navbar navbar-dark navbar-expand-lg navbar-light bg-dark">
+<nav class="navbar navbar-dark navbar-expand-lg navbar-light bg-dark fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand" routerLink="/"><b>Moodify</b></a>
+      <a class="navbar-brand" routerLink="/"><h4><b>Moodify</b></h4></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -13,18 +13,24 @@
             <a class="nav-link" routerLink="/login">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="dashboard">Dashboard</a>
+            <a class="nav-link" routerLink="/dashboard">Dashboard</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="tracker">Mood Tracker</a>
+            <a class="nav-link" routerLink="/tracker">Mood Tracker</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about">About</a>
+            <a class="nav-link" routerLink="/about">About</a>
           </li>
         </ul>
-        <span class="navbar-text" *ngIf="is_logged">
-          <button class="btn btn-outline-danger" (click)="logout()">Logout</button>
+        <span class="navbar-text d-flex">
+          <div *ngIf="is_logged">
+            <button class="btn btn-outline-danger" (click)="logout()">Logout</button>
+          </div>
+          <!-- <div *ngIf="!is_logged">
+            <button class="btn btn-outline-success" routerLink="/login">Login</button>
+          </div> -->
         </span>
+
       </div>
     </div>
   </nav>

@@ -1,4 +1,4 @@
-<div class="container my-5 text-center">
+<div class="my-5 text-center">
     <div *ngIf="!isAuthorized">
         <div class="display-4">
             {{message}}
@@ -15,7 +15,7 @@
         </div>
 
         <div *ngIf="!first_entry">
-            <table class="table the-table table-striped">
+            <table class="table the-table table-striped table-hover">
                 <thead>
                   <tr>
                     <th scope="col">Date</th>
