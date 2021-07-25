@@ -11,41 +11,15 @@ const EntrySchema = mongoose.Schema({
     },
     wake_up: String,
     hours_slept: Number,
-    mood: {
-        morning: Number,
-        afternoon: Number,
-        evening: Number,
-        overall: Number,
-    },
-    substances: {
-        alcohol: Boolean,
-        marijuana: Boolean,
-    },
-    romantic_relationship: {
-        exists: Boolean,
-        comment: String
-    },
-    social_life: {
-        exists: Boolean,
-        comment: String
-    },
-    work: {
-        exists: Boolean,
-        comment: String
-    },
-    study: {
-        exists: Boolean,
-        comment: String
-    },
-    hobbies: {
-        exists: Boolean,
-        comment: String
-    },
-    sexual_activity: {
-        exists: Boolean,
-        comment: String
-    },
+    work: String,
+    study: String,
+    romantic_relationship: String,
+    social_life: String,
+    hobbies: String,
     productive: Number,
+    substances: String,
+    sexual_activity: String,
+    mood: Number,
     additional_info: String,
     createdBy: { type: Schema.Types.ObjectId, ref: 'User' }
 });
