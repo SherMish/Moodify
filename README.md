@@ -12,9 +12,9 @@ mood and overall feeling for the better, or worse.
 * [Bootstrap](https://getbootstrap.com)
 * [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/lp/try2?utm_source=google&utm_campaign=gs_emea_israel_search_core_brand_atlas_desktop&utm_term=mongodb%20cloud%20atlas&utm_medium=cpc_paid_search&utm_ad=e&utm_ad_campaign_id=12212624530&gclid=Cj0KCQjwl_SHBhCQARIsAFIFRVVVlDfqyl_5t30ElLdyYdqecMfTO_dO6Vxltgi79jkgfdO0NL7I0ZkaAlymEALw_wcB)
 
-
-
-![official-poster](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/empty%20mood%20tracker.jpg?raw=true)
+### Screenshots
+Home page:
+![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/main.jpg?raw=true)
 
 
 
