@@ -19,20 +19,23 @@ Home page:
 Login with non existing username:
 ![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/user%20could%20not%20be%20found.jpg?raw=true)
 
-Login with non existing username:
-![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/user%20could%20not%20be%20found.jpg?raw=true)
+Login with existing username but wrong password:
+![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/wrong%20pass.jpg?raw=true)
 
-Login with non existing username:
-![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/user%20could%20not%20be%20found.jpg?raw=true)
+Filling the registration form:
+![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/new%20account.jpg?raw=true)
 
-Login with non existing username:
-![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/user%20could%20not%20be%20found.jpg?raw=true)
+Registration successful (Username & Email not used):
+![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/new%20account%20alert.jpg?raw=true)
 
-Login with non existing username:
-![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/user%20could%20not%20be%20found.jpg?raw=true)
+Automatic redirection to the dashboard. Please note that a Logout button has appeared on the right side
+of the navbar. This feature was implemented with Angular Obervables. A welcome message is displayed:
+![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/greeting%20msg.jpg?raw=true)
 
-Login with non existing username:
-![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/user%20could%20not%20be%20found.jpg?raw=true)
+After 3 seconds, using an external animation, the form appears:
+![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/form%201.jpg?raw=true)
+![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/form%202.jpg?raw=true)
+![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/form%203.jpg?raw=true)
 
 
 # External resources:
