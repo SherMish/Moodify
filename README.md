@@ -37,6 +37,29 @@ After 3 seconds, using an external animation, the form appears:
 ![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/form%202.jpg?raw=true)
 ![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/form%203.jpg?raw=true)
 
+If we click on "Mood Tracker" button on the top navbar, before submitting a daily form:
+![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/empty%20mood%20tracker.jpg?raw=true)
+
+Wake Up field:
+![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/form%20demonstration%201.jpg?raw=true)
+
+Productivity field:
+![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/form%20demonstration%202.jpg?raw=true)
+
+Additional Notes field:
+![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/form%20demonstration%203.jpg?raw=true)
+
+Additional Noted field:
+![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/form%20demonstration%203.jpg?raw=true)
+
+Additional Noted field:
+![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/form%20demonstration%203.jpg?raw=true)
+
+Additional Noted field:
+![home-page](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/form%20demonstration%203.jpg?raw=true)
+
+
+
 
 # External resources:
 Mux guide: https://tronixstuff.com/2019/10/29/tutorial-using-the-tca9548a-1-to-8-i2c-multiplexer-breakout-with-arduino/
