@@ -23,7 +23,7 @@ mood and overall feeling for the better, or worse.
 
 The official poster which was presented at the
 Interdisciplinary Center For Smart Technologies at the Faculty of Computer Science, Technion
-![official-poster](https://raw.githubusercontent.com/SherMish/Moodify/master/client/src/assets/screenshots/empty%20mood%20tracker.jpg)
+![official-poster](https://github.com/SherMish/Moodify/blob/master/client/src/assets/screenshots/empty%20mood%20tracker.jpg?raw=true)
 Homepage:
 ![hope-page](https://github.com/SherMish/IOT-The-Lightning-Suit/blob/main/README%20screenshots/1.png?raw=true)
 Choose workout page:
